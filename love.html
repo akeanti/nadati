@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadati Babe</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0D1B2A;
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Background Music */
+        audio {
+            position: absolute;
+            top: -1000px;
+        }
+
+        /* Sections */
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1600x900/?romantic') no-repeat center center/cover;
+            position: relative;
+        }
+
+        /* Glowing Golden Lights */
+        .gold-lights {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,223,86,0.5) 10%, rgba(0,0,0,0) 70%);
+            background-size: 200px 200px;
+            animation: glowMove 5s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes glowMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 500px 500px; }
+        }
+
+        #hero h1, #hero #countdown {
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Countdown */
+        #countdown {
+            font-size: 4em;
+            color: #FFCD38;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #FFCD38; }
+            to { text-shadow: 0 0 20px #FFD700, 0 0 30px #FFCD38; }
+        }
+
+        /* Hidden Story Section (Initially Invisible) */
+        #story {
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            padding: 50px;
+            position: relative;
+            text-align: center;
+            justify-content: center;
+        }
+
+        /* Typing Effect */
+        .story-step {
+            font-size: 2em;
+            color: #E0E1DD;
+            display: none;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .typing {
+            border-right: 3px solid rgba(255,255,255,0.75);
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end) forwards;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* No caret blinking after typing finishes */
+        .no-caret {
+            border-right: none;
+        }
+
+        /* Fading Love Images */
+        .fade-image {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .fade-image.visible {
+            opacity: 1;
+        }
+
+        /* Global Button Styles */
+        .btn {
+            background-color: #FFCD38;
+            color: #0D1B2A;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: transform 0.3s ease-in-out, background-color 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background-color: #FFD700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero {
+                background-size: cover;
+            }
+            #countdown {
+                font-size: 2em;
+            }
+            .story-step {
+                font-size: 1.5em;
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #countdown {
+                font-size: 1.5em;
+            }
+            .story-step {
+                font-size: 1.2em;
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio id="bg-music" autoplay loop>
+        <source src="Love.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Hero Section with Countdown -->
+    <section id="hero">
+        <div class="gold-lights"></div>
+        <div>
+            <h1>Something Special Is Coming...</h1>
+            <div id="countdown">00:30</div>
+        </div>
+    </section>
+
+    <!-- Hidden Storytelling Section -->
+    <section id="story">
+        <div class="fade-image" id="fade1" style="background-image: url('https://img.freepik.com/photos-gratuite/couple-coeur-mains-bord-mer_23-2148019887.jpg');"></div>
+        <div class="fade-image" id="fade2" style="background-image: url('https://img.freepik.com/premium-photo/valentine-day-concept-with-man-love-with-red-heart_1096192-3829.jpg');"></div>
+        <div class="fade-image" id="fade3" style="background-image: url('https://img.freepik.com/free-photo/broken-hearts-with-texture_23-2150967226.jpg?semt=ais_hybrid');"></div>
+
+        <h2>Our Journey Together</h2>
+        <div class="story-step typing" id="step1">It all started when we met...</div>
+        <div class="story-step typing" id="step2">Every moment since has been magic...</div>
+        <div class="story-step typing no-caret" id="step3">Will you be my girlfriend?</div>
+    </section>
+
+    <script>
+        // Countdown Timer
+        const countdownElement = document.getElementById('countdown');
+        const targetTime = new Date().getTime() + 30 * 1000; // 30-second countdown
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeleft = targetTime - now;
+
+            const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+            countdownElement.innerHTML = `00:${seconds < 10 ? '0' + seconds : seconds}`;
+
+            if (timeleft < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector('#hero').style.display = 'none';
+                document.querySelector('#story').style.display = 'block';
+                startTypingEffect();
+                fadeImages();
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Typing Effect
+        const steps = [
+            { id: "step1", text: "It all started when we met..." },
+            { id: "step2", text: "Every moment since has been magical..." },
+            { id: "step3", text: "Will you be my girlfriend?" }
+        ];
+
+        let typingIndex = 0;
+        let charIndex = 0;
+
+        function startTypingEffect() {
+            if (typingIndex < steps.length) {
+                const currentStep = document.getElementById(steps[typingIndex].id);
+                currentStep.style.display = 'block';
+
+                if (charIndex < steps[typingIndex].text.length) {
+                    currentStep.innerHTML = steps[typingIndex].text.substring(0, charIndex + 1);  // smoother typing
+                    charIndex++;
+                    setTimeout(startTypingEffect, 70); // Typing speed
+                } else {
+                    charIndex = 0;
+                    typingIndex++;
+                    setTimeout(startTypingEffect, 500); // Pause between steps
+                }
+            } else {
+                // Stop the blinking cursor once typing is done
+                document.querySelectorAll('.typing').forEach(el => el.classList.add('no-caret'));
+            }
+        }
+
+        // Fading Image Effect
+        function fadeImages() {
+            const fadeImages = document.querySelectorAll('.fade-image');
+            let currentFade = 0;
+
+            function showNextImage() {
+                fadeImages[currentFade].classList.add('visible');
+
+                setTimeout(() => {
+                    fadeImages[currentFade].classList.remove('visible');
+                    currentFade = (currentFade + 1) % fadeImages.length;
+                    showNextImage();
+                }, 3000);  // Image fade interval
+            }
+
+            showNextImage();
+        }
+
+        // Fix for autoplaying music (browser restrictions workaround)
+        const audioElement = document.getElementById('bg-music');
+        document.addEventListener('DOMContentLoaded', () => {
+            audioElement.play().catch(() => {
+                document.body.addEventListener('click', () => audioElement.play());
+            });
+        });
+    </script>
+</body>
+</html>
